@@ -1,0 +1,20 @@
+2026-11-21 18:21:24 | INFO     | __main__ | Starting Part 2 data cleaning pipeline.
+2026-11-21 18:21:24 | INFO     | __main__ | Successfully loaded raw dataset from 'Metro_Interstate_Traffic_Volume.csv' (48204 rows, 9 columns).
+2026-11-21 18:21:24 | INFO     | __main__ | Schema validation passed: all 9 expected columns verified.
+2026-11-21 18:21:24 | INFO     | __main__ | Date/time parsing completed: 0 invalid timestamps found.
+2026-11-21 18:21:24 | WARNING  | __main__ | Standardised whitespace/casing across 1730 categorical field entries.
+2026-11-21 18:21:25 | WARNING  | __main__ | Dropped 17 exact duplicate rows from the dataset.
+2026-11-21 18:21:25 | INFO     | __main__ | Missing value check completed across numerical columns.
+2026-11-21 18:21:25 | DEBUG    | __main__ | Month 01 temperature outlier imputation applied median 266.83 K to 4 rows.
+2026-11-21 18:21:25 | DEBUG    | __main__ | Month 02 temperature outlier imputation applied median 266.51 K to 6 rows.
+2026-11-21 18:21:25 | WARNING  | __main__ | Imputed 10 rows with physically impossible temperature readings (<= 0 K or > 330 K) using monthly medians.
+2026-11-21 18:21:25 | WARNING  | __main__ | Imputed 1 rows with physically impossible rainfall readings (< 0 or > 9000 mm) using monthly medians.
+2026-11-21 18:21:25 | INFO     | __main__ | Traffic volume range check completed: all values >= 0.
+2026-11-21 18:21:25 | INFO     | __main__ | Pipeline completed successfully. Cleaned dataset saved to 'cleaned_traffic_data.csv' (48187 rows, 9 columns).
+2026-11-21 18:27:50 | INFO     | __main__ | Starting Part 2 feature engineering pipeline.
+2026-11-21 18:27:50 | INFO     | __main__ | Loaded 'cleaned_traffic_data.csv' (48187 rows, 9 columns).
+2026-11-21 18:27:50 | INFO     | __main__ | Created temporal features: hour, day_of_week, month, year, is_weekend, is_holiday, is_rush_hour.
+2026-11-21 18:27:50 | INFO     | __main__ | Created cyclical trigonometric features: hour_sin, hour_cos, month_sin, month_cos.
+2026-11-21 18:27:50 | INFO     | __main__ | Created weather & target features: temp_celsius, is_freezing, has_precipitation, total_precipitation_1h, is_congested.
+2026-11-21 18:27:50 | WARNING  | __main__ | Dropped 24 initial rows lacking 24-hour historical lag context.
+2026-11-21 18:27:51 | INFO     | __main__ | Feature engineering completed successfully. Saved 'engineered_traffic_data.csv' (48163 rows, 29 columns).
