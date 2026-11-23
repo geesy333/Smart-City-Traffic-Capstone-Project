@@ -1,0 +1,4 @@
+Model,RMSE,MAE,R2_Score
+Random_Forest_Regressor,250.2,154.49,0.9838
+Gradient_Boosting_Regressor,264.61,171.29,0.9819
+Ridge_Regression_Baseline,546.13,401.15,0.923
